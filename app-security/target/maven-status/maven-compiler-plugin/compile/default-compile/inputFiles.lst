@@ -1,0 +1,11 @@
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\security\CustomSecurityUser.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\controller\MainController.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\security\SecurityConfiguration.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\appsecurity\PasswordGenerator.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\service\impl\UserDetailsServiceImpl.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\controller\AuthController.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\model\AuthoritiesEntity.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\appsecurity\ServerInitializer.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\model\UserEntity.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\appsecurity\AppSecurityApplication.java
+D:\WorkSpace\SpringSecurity\app-security\src\main\java\com\example\repository\UserRepository.java

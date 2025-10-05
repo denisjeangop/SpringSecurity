@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Admin - Panel de Control</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .user-info { background: #f0f0f0; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        .debug-info { background: #e7f3ff; padding: 10px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #007bff; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .access-denied { color: red; font-weight: bold; background: #ffe6e6; padding: 15px; border-radius: 5px; }
+        .logout-btn { background: #dc3545; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px; }
+        .nav-link { margin-right: 15px; color: #007bff; text-decoration: none; }
+        .nav-link:hover { text-decoration: underline; }
+        .admin-content { display: block; }
+        .non-admin-content { display: block; }
+    </style>
+</head>
+<body>
+    <div class="user-info">
+        <strong>👤 Usuario logueado:</strong> <span sec:authentication="name">usuario</span>
+        <span style="margin-left: 20px;">
+            <a href="/logout" class="logout-btn">🔓 Cerrar Sesión</a>
+        </span>
+    </div>
+
+    <!-- DEBUG: Mostrar detalles de autenticación -->
+    <h1>🛡️ Área de Administrador</h1>
+
+    <!-- CONTENIDO PARA ADMIN -->
+    <div sec:authorize="hasRole('ADMIN')" class="admin-content">
+        <p>✅ <strong>Acceso autorizado</strong> - Tienes permisos de administrador</p>
+        
+        <h2>📋 Lista de Usuarios del Sistema</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>UUID</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}">1</td>
+                    <td th:text="${user.uuid}">abc-123</td>
+                    <td th:text="${user.email}">admin@test.com</td>
+                    <td>
+                        <span th:each="authority, iterStat : ${user.authorities}">
+                            <span th:text="${authority.authority}">ROLE_ADMIN</span>
+                            <span th:if="!${iterStat.last}">, </span>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p><em>Total de usuarios: <span th:text="${#lists.size(users)}">0</span></em></p>
+    </div>
+
+
+    <hr style="margin: 30px 0;">
+    
+    <div>
+        <a href="/" class="nav-link">🏠 Volver al inicio</a>
+        <a href="/dashboard" class="nav-link">📊 Dashboard</a>
+    </div>
+</body>
+</html>
