@@ -58,4 +58,4 @@ Este proyecto es una **aplicación web completa** desarrollada con **Spring Boot
 - **Entidades relacionales** con mapeo JPA bidireccional
 - **Consultas optimizadas** con JOIN FETCH para evitar N+1 queries
 - **Validación de datos** en múltiples capas
-- **Manejo de transacciones** para opera
+- **Manejo de transacciones** para operaciones complejas
